@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AssetPacks/LostCrypt/Scenes/LostCryptExampleScene.unity
     guid: a2b58d8c2e473104380da39b8eb2a7e5
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: d28a40a611ac1c54f909dc959e187514,
+      type: 2}

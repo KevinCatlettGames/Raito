@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -24,11 +27,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int extraJumpsValue;                   // Amount of extra jumps the player can do after jumping.
     [Tooltip("Speed of the player while sliding on a wall.")]
     [SerializeField] float wallSlidingSpeed;                // Amount of Speed when sliding on a wall.
+    [Space]
+    [SerializeField] float dashingPower;
+    [SerializeField] float dashingTime;
+    [SerializeField] float dashingCooldown;
 
     private float horizontal;
     private int extraJumps;                                 // Counter for extra jumps. 
     private bool isFacingRight = true;                      // For determining which way the player is currently facing.
     private bool isWallSliding;
+
+    private bool canDash = true;
+    private bool isDashing;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,8 +50,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
         // If the player is grounded, 
         if (IsGrounded())
         {
@@ -50,6 +59,16 @@ public class PlayerMovement : MonoBehaviour
         Flip();                     // ... flip the player.
         WallSlide();                // ... player slides on a wall.
         UpdateAnimationState();     // ... update the animation states.
+    }
+
+    private void FixedUpdate()
+    {
+        if (isDashing)
+        {
+            return;
+        }
+
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
     private void Flip()
@@ -88,6 +107,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.performed && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
     private bool IsGrounded()
     {
         // The player is grounded if a circle cast to the ground check position hits anything designated as ground.
@@ -111,6 +138,20 @@ public class PlayerMovement : MonoBehaviour
         {
             isWallSliding = false;
         }
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        yield return new WaitForSeconds(dashingTime);
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 
     private void UpdateAnimationState()
@@ -141,6 +182,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("IsWallsliding", false);
+        }
+
+        if (isDashing == true)
+        {
+            animator.SetBool("IsDashing", true);
+        }
+        else
+        {
+            animator.SetBool("IsDashing", false);
         }
     }
 }
