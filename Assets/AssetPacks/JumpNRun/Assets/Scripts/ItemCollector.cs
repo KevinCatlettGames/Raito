@@ -15,6 +15,7 @@ public class ItemCollector : MonoBehaviour
         {
             Destroy(collision.gameObject);
             strawberries++;
+            if(strawberriesText != null)
             strawberriesText.text = "Strawberries: " + strawberries;
         }
     }
