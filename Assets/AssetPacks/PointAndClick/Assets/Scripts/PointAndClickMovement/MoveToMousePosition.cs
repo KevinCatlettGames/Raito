@@ -21,9 +21,6 @@ public class MoveToMousePosition : MonoBehaviour
     bool move; // If the player should be moving.
 
     [SerializeField]
-    SpriteRenderer spriteRenderer;
-
-    [SerializeField]
     Animator animator;
 
     [SerializeField]
@@ -32,6 +29,9 @@ public class MoveToMousePosition : MonoBehaviour
     [SerializeField]
     float speed = 5; // The movement speed of the player.
 
+    [SerializeField] SpriteRenderer[] spriteRenderers;
+    float originalXScale;
+    bool isMinus;
     #endregion
 
     #region Start
@@ -39,6 +39,7 @@ public class MoveToMousePosition : MonoBehaviour
     void Start()
     {
         mousePosition = MousePosition.instance;
+        originalXScale = transform.localScale.x;
     }
 
     #endregion
@@ -49,7 +50,7 @@ public class MoveToMousePosition : MonoBehaviour
     {
         if (move)
         {
-         
+
             distanceToTarget = Vector3.Distance(transform.position, currentPosition);
 
             if (distanceToTarget <= stoppingDistance)
@@ -67,42 +68,60 @@ public class MoveToMousePosition : MonoBehaviour
 
             transform.position = Vector2.MoveTowards(transform.position, currentPosition, speed * Time.deltaTime);
         }
-
     }
+        #endregion
 
-    #endregion
-
-    #region Methods
-    /// <summary>
-    /// Checks if the position that the mouse is at is a valid position to move to, and triggers movement if so.
-    /// </summary>
-    void EvaluateMoveInformation()
-    {      
-        move = true;
-        clickedObject = mousePosition.ObjectAtMousePosition();
-        if (clickedObject != null)
+        #region Methods
+        /// <summary>
+        /// Checks if the position that the mouse is at is a valid position to move to, and triggers movement if so.
+        /// </summary>
+        void EvaluateMoveInformation()
         {
-            if (clickedObject.GetComponent<IsNotWalkable>())
-            {       
+        currentPosition = mousePosition.WorldMousePosition();
+        clickedObject = mousePosition.ObjectAtMousePosition();
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position,
+        new Vector2(currentPosition.x - transform.position.x, currentPosition.y - transform.position.y),
+            Vector2.Distance(transform.position, currentPosition));
+
+        if (hit.collider != null)
+        {
+            Debug.DrawLine(transform.position, hit.point, Color.red);
+            if (hit.collider.gameObject.GetComponent<IsNotWalkable>())
+            {
+                Debug.Log("cant walk");
                 move = false;
                 animator.SetFloat("Speed", 0);
-                return;
+            }       
+          
+        }
+        else
+        {
+            move = true;         
+            if (clickedObject != null)
+            {
+                if (clickedObject.GetComponent<IsNotWalkable>())
+                {
+                    move = false;
+                    animator.SetFloat("Speed", 0);
+                    return;
+                }
             }
+            animator.SetFloat("Speed", 1);
+           
 
+            if (transform.position.x < currentPosition.x && isMinus)
+            {
+                isMinus = false;
+                Debug.Log("Change to plus");
+                transform.localScale = new Vector2(originalXScale, transform.localScale.y);
+            }
+            else if (transform.position.x > currentPosition.x && !isMinus)
+            {
+                isMinus = true;
+                transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            }
         }
-        Vector2 currentMousePosition = mousePosition.WorldMousePosition();
-        currentPosition = currentMousePosition;
-
-        if (transform.position.x < currentPosition.x)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (transform.position.x > currentPosition.x)
-        {
-            spriteRenderer.flipX = true;
-        }
-
-        animator.SetFloat("Speed", 1);
     }
 
     #endregion
@@ -113,6 +132,7 @@ public class MoveToMousePosition : MonoBehaviour
     /// </summary>
     public void MouseClick(InputAction.CallbackContext context)
     {
+        if(context.performed)
         EvaluateMoveInformation();
     }
 

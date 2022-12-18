@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
 
     public void AddToInventory(Item item)
     {
+        Debug.Log("Adding to inventory");
         if (itemsInInventory.Count < itemCapacity)
         {
             itemsInInventory.Add(item);
