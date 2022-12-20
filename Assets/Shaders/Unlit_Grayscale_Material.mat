@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Unlit_Grayscale_Material
-  m_Shader: {fileID: -6465566751694194690, guid: 80163fef2170786489224a4207fd86fb,
+  m_Shader: {fileID: -6465566751694194690, guid: f08e16a6ada559249b39ed007a20d86c,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

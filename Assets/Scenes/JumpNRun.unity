@@ -4195,7 +4195,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2062193441116841811}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2062193441116841812}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cc28b6a6a29f1a4bab7bf4f03e5eaf2, type: 3}
@@ -5904,7 +5904,17 @@ PrefabInstance:
     - target: {fileID: 2062193440985959373, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0119
+      value: -0.0061
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062193440985959373, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062193441012843806, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0431
       objectReference: {fileID: 0}
     - target: {fileID: 2062193441822651729, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
         type: 3}
@@ -5989,7 +5999,7 @@ PrefabInstance:
     - target: {fileID: 2062193441822651733, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.07981402
+      value: 0.07381772
       objectReference: {fileID: 0}
     - target: {fileID: 2062193441822651733, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
         type: 3}
@@ -6004,7 +6014,7 @@ PrefabInstance:
     - target: {fileID: 2062193441822651733, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.008821163
+      value: -0.010451368
       objectReference: {fileID: 0}
     - target: {fileID: 2062193441822651733, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
         type: 3}
@@ -6613,6 +6623,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61bcdd4991bee414fa0aec8b82e5b76c, type: 3}
+--- !u!1 &2062193441116841812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2062193441822652072, guid: 61bcdd4991bee414fa0aec8b82e5b76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2062193441116841811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &2062193441116841813
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062193441116841812}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.05367794, y: 0.05081024}
+      - {x: 0.017102875, y: -0.002072215}
+      - {x: -0.045106776, y: -0.07228576}
+      - {x: -0.09188064, y: -0.10141415}
+      - {x: 0.035642035, y: -0.1213455}
+      - {x: 0.027927853, y: -0.075642034}
+      - {x: 0.0657159, y: -0.021724114}
+      - {x: 0.085909665, y: -0.009725025}
+      - {x: 0.09516826, y: 0.03329485}
 --- !u!1001 &4990976260687607397
 PrefabInstance:
   m_ObjectHideFlags: 0
