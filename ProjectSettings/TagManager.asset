@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Collectable
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,10 +12,20 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Walls
-  - Ground Soft
-  - Ground Hard
+  - 
+  - 
+  - Level
+  - Enemy
+  - Usable
+  - Interactable
+  - IgnorePlayer
+  - Player
+  - Cameras
+  - LitSprites
+  - Destructable
+  - EnemyWeapon
+  - BossWeakPoint
+  - Bullet
   - 
   - 
   - 
@@ -26,37 +36,18 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerDrop
+  - Platform
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3936676035
-    locked: 0
-  - name: Near Background
-    uniqueID: 1988455705
-    locked: 0
-  - name: Cave
-    uniqueID: 222040141
-    locked: 0
-  - name: Exterior
-    uniqueID: 1752682665
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 1950422495
+  - name: Water
+    uniqueID: 2116099231
     locked: 0
-  - name: Near Foreground
-    uniqueID: 2727812175
+  - name: Level
+    uniqueID: 2344118779
+    locked: 0
+  - name: Front
+    uniqueID: 3405993979
     locked: 0
