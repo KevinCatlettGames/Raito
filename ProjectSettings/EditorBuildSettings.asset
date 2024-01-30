@@ -6,8 +6,71 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/AssetPacks/LostCrypt/Scenes/LostCryptExampleScene.unity
-    guid: a2b58d8c2e473104380da39b8eb2a7e5
+    path: Assets/Scenes/MenuScenes/MainMenu.unity
+    guid: 7803ca4430fefab4890fe199f9e11483
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes/LevelSelectionMenu.unity
+    guid: cf6ed5a51ee037f448d43cb6b8ee0393
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes/OptionsMenu.unity
+    guid: 74ad0894ec48c5e43bf3eaa8164cd511
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes/ControlsMenu.unity
+    guid: a0e751916a7a41843a40eca58cb99ca4
+  - enabled: 1
+    path: Assets/Scenes/LevelS/PointAndClick/PointAndClick.unity
+    guid: 0802e6407691476499c898ae256323ac
+  - enabled: 1
+    path: Assets/Scenes/LevelS/old/Forest_to_Underground.unity
+    guid: 30e0b4843691e5b48bb3f1b0ba800011
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave1/CaveKC04.unity
+    guid: 1b93c23e9f3bd1b4b9a830856b54b01d
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave1/CaveKC01.unity
+    guid: c283fe2ea56d99640ae13ff6a8d074d0
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave1/CaveKC02.unity
+    guid: 2bd39e156fe74e74492e9ac645b31f8e
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave1/CaveKC03.unity
+    guid: 205cf467858bc784eb8a362537dd1026
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave2/CaveNE01.unity
+    guid: 91b6c9cbac5c4cf42881de1080c9a710
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave2/CaveNE02.unity
+    guid: dcc74d7947a2bb44b80298246649b25b
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave2/CaveNE03.unity
+    guid: 4004466155525174bb6f97b0049f8b0f
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave3/CaveNE04.unity
+    guid: 4b7a9ab378273f64780389f8f1bb041e
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave3/CaveNE05.unity
+    guid: 657aea634ea56f442b85a3099adc3905
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave3/CaveNE06.unity
+    guid: 11ed4a3b3e385fe4c80d4d002f955f98
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Cave3/CaveNE07.unity
+    guid: 548ca2f2dfdf5214ca4094e87de3fac6
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Forest/ForestKL01.unity
+    guid: 653345cd722aba6428cb67959fa70645
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Forest/ForestKL02.unity
+    guid: 7201584c0e00b6144aef14e0e700096c
+  - enabled: 1
+    path: Assets/Scenes/LevelS/Forest/ForestKL03.unity
+    guid: 5bcecfdf8113b5840ab0b66a562ec00e
+  - enabled: 1
+    path: Assets/Scenes/LevelS/End/EndScene.unity
+    guid: fe3ce7698ea5ee14b9a56ef4e7bbdace
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes/CreditsMenu.unity
+    guid: 7d8cd62315476d147a44dde1ae10d685
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d28a40a611ac1c54f909dc959e187514,
       type: 2}
